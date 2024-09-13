@@ -40,6 +40,8 @@ void render() {
     printf("%s", BORDER_BL);
     for (uint32_t x = 0; x < SIZE * 2; x++) printf("%s", BORDER_H);
     printf("%s\n", BORDER_BR);
+
+    printf("Press ENTER to advance to next step.\n");
 }
 
 uint32_t get_alive_neighbors(uint32_t x, uint32_t y, bool grid[SIZE][SIZE]) {
