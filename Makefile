@@ -1,11 +1,16 @@
-build = gcc -o main main.c -Wall -Wextra -Wpedantic
-run = $(build) && ./main
+CC = gcc
+CFLAGS = -Wall -Wextra -Wpedantic
 
-run:
-	$(run)
+TARGET = golad
 
-watch:
-	clear; $(run) ;\
-	reflex --decoration=none -r '.*\.c' -- zsh -c 'clear; $(run)'
+$(TARGET): main.c
+	$(CC) $(CFLAGS) -o $(TARGET) main.c
 
+clean:
+	rm -f $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: clean run
 
